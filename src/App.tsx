@@ -1,15 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
+import Login from './pages/Login/Login';
 
 const App = (): JSX.Element => {
     return (
         <div className="App">
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 };
