@@ -1,15 +1,23 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 
+
+/**
+ * Create an instance of Axios with the base URL for the authentication API.
+ * @type {import("axios").AxiosInstance}
+ */
 const authApi = axios.create({
-  baseURL: 'https://your-auth-api.com',
+  baseURL: 'http://localhost:3001',
 });
 
-// make a POST request to the /login endpoint with email and password
-
-
-const login = async (email: string, password: string) => {
+/**
+ * Perform a login request to the authentication endpoint. 
+ * @param {string} email - The user's email.
+ * @param {string} password - The user's password.
+ * @returns {Promise<string | AxiosError>} - A Promise that resolves to the *authentication token*.
+ */
+export const Login = async (email: string, password: string): Promise<string| AxiosError> => {
     try {
-      const response = await authApi.post('/login', {
+      const response = await authApi.post('api/v1/user/login', {
         email: email,
         password: password,
       });
@@ -17,7 +25,7 @@ const login = async (email: string, password: string) => {
       return response.data;
     } catch (error) {
       // handle error
-      return error
+      return error as AxiosError
     }
   };
 
