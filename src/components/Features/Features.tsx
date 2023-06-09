@@ -31,4 +31,9 @@ const Item: React.FC<PropsItem> = ({ imgSrc, imgAlt, title, description }) => {
     );
 };
 
-export default { Grid, Item };
+const Features = {
+    Grid,
+    Item
+}
+
+export default Features

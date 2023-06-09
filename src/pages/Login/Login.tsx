@@ -4,10 +4,13 @@ import AppContainer from '../../components/AppContainer/AppContainer'
 import Footer from '../../components/Footer/Footer'
 import AppForm from '../../components/AppForm/AppForm'
 import AppHeader from '../../components/AppHeader/AppHeader'
+import { useAuthentificate } from '../../store/auth.slice'
 type Props = {}
 
 
 const Login = (props: Props) => {
+
+    const { Login, Status } = useAuthentificate();
     return (
         <div id="login">
             <AppHeader title="Argent Bank" logoSrc="./img/argentBankLogo.png" logoAlt="Argent Bank Logo" logoHref="/" />
@@ -24,7 +27,7 @@ const Login = (props: Props) => {
                             const remember =
                                 e.currentTarget.querySelector<HTMLInputElement>('input[id="remember-me"]')?.checked;
                             if (email && password) {
-                                //await Login(email, password, remember);
+                                await Login(email, password, remember);
                             }
                         }}
                     >
@@ -41,6 +44,7 @@ const Login = (props: Props) => {
                             type="checkbox"
                             label="Remember me"
                         />
+                        {Status === 'error' ? <p className="sign-in-error">Login or password invalid !</p> : null}
                         <button className="sign-in-button">Sign In</button>
                     </AppForm.Form>
                 </section>

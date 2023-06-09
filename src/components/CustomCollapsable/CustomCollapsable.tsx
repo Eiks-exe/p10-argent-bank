@@ -169,9 +169,11 @@ export const CustomCollapsablePanel = ({ children, ...props }: ICustomCollapsabl
     );
 };
 
-export default {
+const collapsableModule = {
     Container: CustomCollapsable,
     Item: CustomCollapsableItem,
     Button: CustomCollapsableButton,
     Panel: CustomCollapsablePanel,
-};
+}
+
+export default collapsableModule

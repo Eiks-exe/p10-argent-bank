@@ -81,7 +81,7 @@ const TransactionDetail: React.FC<{ transaction: typeof transactionFake[number] 
                     <input
                         type="text"
                         onKeyDown={(e) => {
-                            e.key == 'Enter' && setIsNoteEdit(!isNoteEdit);
+                            e.key === 'Enter' && setIsNoteEdit(!isNoteEdit);
                         }}
                     />
                 ) : (

@@ -42,6 +42,9 @@ const Item: React.FC<PropsItem> = ({ title, amount, fullWidth, onClick, textAlig
     )
 }
 
+const AccountInfo = {
+    Grid,
+    Item
+}
 
-
-export default { Grid, Item }
+export default AccountInfo

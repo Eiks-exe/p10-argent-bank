@@ -8,7 +8,12 @@ const Form: React.FC<Props> = (props) => {
     return <form {...props}></form>;
 };
 
-export default { Form, LabelInput };
+const AppForm = {
+    Form,
+    LabelInput
+}
+
+export default AppForm;
 
 
 
